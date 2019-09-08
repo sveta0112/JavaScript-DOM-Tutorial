@@ -176,3 +176,22 @@ hideBox.addEventListener('change', (e) => {
 })
 
 
+
+
+ /**---------------------SEARCH FILTER------------------------- */
+ const searchForm = document.forms['search-books'].querySelector('input');
+ searchForm.addEventListener('keyup', (e) => {
+     const term = e.target.value.toLowerCase();
+     const books = list.getElementsByTagName('li');
+     Array.from(books).forEach(book => {
+         const title = book.firstElementChild.textContent; //<span class="name">...</span>
+         if(title.toLowerCase().indexOf(term) !== -1) {
+             book.style.display = 'block';
+         } else {
+             book.style.display = 'none';
+         }
+     })
+ })
+
+
+
