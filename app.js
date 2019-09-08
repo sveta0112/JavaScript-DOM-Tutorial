@@ -75,3 +75,11 @@ books.forEach(book => {
 
  console.log('children ', bookList.childNodes) //[text, h2.title, text, ul, text] --> text are linebreaks
  console.log('children without linebreaks', bookList.children);//[h2.title, ul]
+
+
+ console.log('book list next element sibling is: ', bookList.nextElementSibling);
+ console.log('book list previous element sibling is: ', bookList.previousElementSibling);
+
+
+ //editing <p> tag content in previous element sibling <header>
+ bookList.previousElementSibling.querySelector('p').innerHTML += '<br/> Too cool for everyone else'
