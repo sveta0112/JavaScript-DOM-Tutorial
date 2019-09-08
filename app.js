@@ -153,10 +153,14 @@ addForm.addEventListener('submit', (e) => {
     bookName.textContent = value;
 
 
+    //add classes
+    deleteBtn.classList.add('delete')
+    bookName.classList.add('name')
+
+
     //append to DOM
     li.appendChild(bookName);
     li.appendChild(deleteBtn);
-
     //append to ul
     list.appendChild(li);
 })
