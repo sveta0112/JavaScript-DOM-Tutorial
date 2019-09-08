@@ -109,6 +109,8 @@ books.forEach(book => {
 //     })
 // })
 
+
+
 const link = document.querySelector('#page-banner a');
 link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -119,6 +121,7 @@ link.addEventListener('click', (e) => {
 
 /**-------------------EVENT BUBBLING------------------------------- */
 //instead of adding event listenet to each button, we will add event listener to parent ul
+//delete books
 const list = document.querySelector('#book-list ul');
 list.addEventListener('click', (e) => {
     if(e.target.className === 'delete'){
@@ -127,3 +130,19 @@ list.addEventListener('click', (e) => {
         list.removeChild(li);
     }
 })
+
+
+/**-------------------------FORMS -------------------------------- */
+// const forms = document.forms;
+// console.log(forms)//[form#search-books, form#add-book, search-books: form#search-books, add-book: form#add-book]
+
+
+//add book
+const addForm = document.forms['add-book'];
+addForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = addForm.querySelector('input[type="text"]').value;
+    console.log(value);
+})
+
+
