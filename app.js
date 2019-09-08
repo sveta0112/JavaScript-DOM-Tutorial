@@ -27,7 +27,7 @@ books.forEach(book => {
 })
 
 const bookList = document.querySelector('#book-list');
-console.log(bookList.innerHTML)
+//console.log(bookList.innerHTML)
 /** innerHTML
  *<h2 class="title">Books to Read</h2>
 	    	<ul>
@@ -55,3 +55,16 @@ console.log(bookList.innerHTML)
 
  //bookList.innerHTML = '<h2>Books and more books...</h2>'
  bookList.innerHTML += '<p> This is how you add HTML</p>'
+
+
+
+ /**--------------------NODES---------------------------------------- */
+ const banner = document.querySelector('#page-banner');
+ console.log('$page-banner node type is: ', banner.nodeType)
+ console.log('$page-banner node name is: ', banner.nodeName)
+ console.log('$page-banner has child nodes: ', banner.hasChildNodes())
+
+
+ //clone the node
+ const clonnedNode = banner.cloneNode(true); //passing true, in order to make deep cloning with child elements as well, if pass false, only make clone shallow version
+ console.log(clonnedNode);
