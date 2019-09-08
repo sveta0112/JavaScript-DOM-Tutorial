@@ -17,6 +17,8 @@ Array.from(titles).forEach(item => {
 const wmf = document.querySelector('#book-list li:nth-child(2) .name');
 console.log(wmf)//<span class="name">The Wise Man's Fear</span>
 
+
+/**----------------------EDITTING TEXT------------------------------------ */
 //when we use querySelectorAll(), returns NodeList, which has forEach() method, so no need to convert
 const books = document.querySelectorAll('#book-list li .name');
 console.log(books)
@@ -68,6 +70,7 @@ books.forEach(book => {
  //clone the node
 //  const clonnedNode = banner.cloneNode(true); //passing true, in order to make deep cloning with child elements as well, if pass false, only make clone shallow version
 //  console.log(clonnedNode);
+
  /**----------------------TRAVERSING DOM------------------------------- */
  const bookList = document.querySelector('#book-list');
  console.log('the parent node is: ', bookList.parentNode);
@@ -82,4 +85,33 @@ books.forEach(book => {
 
 
  //editing <p> tag content in previous element sibling <header>
- bookList.previousElementSibling.querySelector('p').innerHTML += '<br/> Too cool for everyone else'
+ bookList.previousElementSibling.querySelector('p').innerHTML += '<br/> Too cool for everyone else';
+
+
+
+
+
+ /**-----------------------EVENTS----------------------------------- */
+
+ let h2 = document.querySelector('#book-list h2');
+ h2.addEventListener('click', (evt) => {
+    console.log(evt.target); //<h2 class="title">Books to Read</h2>
+    console.log(evt);
+ })
+
+let btns = document.querySelectorAll('#book-list .delete');
+Array.from(btns).forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        //grab parent of button, which is <li>
+        const li = e.target.parentElement;
+        //delete  li from li's parent ul
+        li.parentNode.removeChild(li);
+    })
+})
+
+const link = document.querySelector('#page-banner a');
+link.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('navigation to ', e.target.textContent, 'was prevented')
+})
+
