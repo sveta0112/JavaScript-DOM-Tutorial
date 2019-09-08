@@ -99,15 +99,15 @@ books.forEach(book => {
     console.log(evt);
  })
 
-let btns = document.querySelectorAll('#book-list .delete');
-Array.from(btns).forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        //grab parent of button, which is <li>
-        const li = e.target.parentElement;
-        //delete  li from li's parent ul
-        li.parentNode.removeChild(li);
-    })
-})
+// let btns = document.querySelectorAll('#book-list .delete');
+// Array.from(btns).forEach(btn => {
+//     btn.addEventListener('click', (e) => {
+//         //grab parent of button, which is <li>
+//         const li = e.target.parentElement;
+//         //delete  li from li's parent ul
+//         li.parentNode.removeChild(li);
+//     })
+// })
 
 const link = document.querySelector('#page-banner a');
 link.addEventListener('click', (e) => {
@@ -115,3 +115,15 @@ link.addEventListener('click', (e) => {
     console.log('navigation to ', e.target.textContent, 'was prevented')
 })
 
+
+
+/**-------------------EVENT BUBBLING------------------------------- */
+//instead of adding event listenet to each button, we will add event listener to parent ul
+const list = document.querySelector('#book-list ul');
+list.addEventListener('click', (e) => {
+    if(e.target.className === 'delete'){
+        const li = e.target.parentElement; //parent of delete btn is li
+        //grab parent of li is ul
+        list.removeChild(li);
+    }
+})
