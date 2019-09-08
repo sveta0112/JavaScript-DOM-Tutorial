@@ -26,7 +26,7 @@ books.forEach(book => {
     book.textContent += ' (book title)'
 })
 
-const bookList = document.querySelector('#book-list');
+//const bookList = document.querySelector('#book-list');
 //console.log(bookList.innerHTML)
 /** innerHTML
  *<h2 class="title">Books to Read</h2>
@@ -54,17 +54,24 @@ const bookList = document.querySelector('#book-list');
  */
 
  //bookList.innerHTML = '<h2>Books and more books...</h2>'
- bookList.innerHTML += '<p> This is how you add HTML</p>'
+ //bookList.innerHTML += '<p> This is how you add HTML</p>'
 
 
 
  /**--------------------NODES---------------------------------------- */
- const banner = document.querySelector('#page-banner');
- console.log('$page-banner node type is: ', banner.nodeType)
- console.log('$page-banner node name is: ', banner.nodeName)
- console.log('$page-banner has child nodes: ', banner.hasChildNodes())
+//  const banner = document.querySelector('#page-banner');
+//  console.log('$page-banner node type is: ', banner.nodeType)
+//  console.log('$page-banner node name is: ', banner.nodeName)
+//  console.log('$page-banner has child nodes: ', banner.hasChildNodes())
 
 
  //clone the node
- const clonnedNode = banner.cloneNode(true); //passing true, in order to make deep cloning with child elements as well, if pass false, only make clone shallow version
- console.log(clonnedNode);
+//  const clonnedNode = banner.cloneNode(true); //passing true, in order to make deep cloning with child elements as well, if pass false, only make clone shallow version
+//  console.log(clonnedNode);
+ /**----------------------TRAVERSING DOM------------------------------- */
+ const bookList = document.querySelector('#book-list');
+ console.log('the parent node is: ', bookList.parentNode);
+ console.log('the parent node is: ', bookList.parentElement.parentElement);//find the grandparent
+
+ console.log('children ', bookList.childNodes) //[text, h2.title, text, ul, text] --> text are linebreaks
+ console.log('children without linebreaks', bookList.children);//[h2.title, ul]
