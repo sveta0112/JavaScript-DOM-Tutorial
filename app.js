@@ -143,6 +143,22 @@ addForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const value = addForm.querySelector('input[type="text"]').value;
     console.log(value);
+    //creating li element, with 2 spans inside of it
+    const li = document.createElement('li');
+    const bookName = document.createElement('span');
+    const deleteBtn = document.createElement('span');
+
+    //add content
+    deleteBtn.textContent = 'delete';
+    bookName.textContent = value;
+
+
+    //append to DOM
+    li.appendChild(bookName);
+    li.appendChild(deleteBtn);
+
+    //append to ul
+    list.appendChild(li);
 })
 
 
