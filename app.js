@@ -1,4 +1,5 @@
-//titles is a HTML Collection, not an array, so it does not have access to many array methods
+document.addEventListener('DOMContentLoaded', () => {
+    //titles is a HTML Collection, not an array, so it does not have access to many array methods
 let titles = document.getElementsByClassName('title');
 console.log(titles)
 
@@ -213,3 +214,5 @@ tabs.addEventListener('clcik',(e) => {
 
 
 
+
+})
